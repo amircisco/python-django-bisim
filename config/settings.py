@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-_qw)pxd9imoc(iwq*qz4+yi6a(&*hq&yx+*t_e5ay*ov_yu+$-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.0.1','localhost']
+ALLOWED_HOSTS = ['127.0.0.1','localhost']
 
 
 # Application definition
@@ -129,3 +129,6 @@ MEDIA_ROOT = ''
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTHENTICATION_BACKEND = ['core.backends.CustomBackend']
+AUTH_USER_MODEL = 'core.Member'
+
+LANGUAGE_CODE = 'fa-ir'
