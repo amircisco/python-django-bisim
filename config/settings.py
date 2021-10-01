@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
+    'core.apps.CoreConfig',
+    'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
@@ -128,7 +129,7 @@ MEDIA_ROOT = ''
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTHENTICATION_BACKEND = ['core.backends.CustomBackend']
-AUTH_USER_MODEL = 'core.Member'
+AUTHENTICATION_BACKEND = ['account.backends.CustomBackend']
+AUTH_USER_MODEL = 'account.Account'
 
 LANGUAGE_CODE = 'fa-ir'
