@@ -8,4 +8,3 @@ class AdminCompany(admin.ModelAdmin):
     list_display = ['name', 'manager', 'date_joined']
 
 
-admin.site.register(Company,AdminCompany)
