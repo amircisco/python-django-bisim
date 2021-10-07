@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Company, Team, Member, Account, Location
+from core.models import Company, Team, Member, Location
 
 
 class AdminCompany(admin.ModelAdmin):
@@ -8,72 +8,51 @@ class AdminCompany(admin.ModelAdmin):
         'name',
         'address',
         'tel',
-        'team_count',
     ]
     list_display = [
         'name',
         'team_count',
         'date_joined',
-        'team_count',
     ]
 
+    def team_count(self, obj):
+        return obj.members
+
+    team_count.short_description = "تعداد تیم"
 
 class AdminTeam(admin.ModelAdmin):
     model = Team
     fields = [
         'name',
         'company',
-        'team_manager',
-        'team_owner',
-        'team_members',
-        'black_list',
+        'manager',
+        'owner',
+        'members',
+        'blacklist',
     ]
     list_dsiplay = [
         'name',
         'company',
-        'team_manager',
-    ]
-
-
-class AdminAccount(admin.ModelAdmin):
-    model = Account
-    fields = [
-        'mobile',
-        'email',
-        'fullname',
-        'is_member',
-        'is_superuser',
-        'is_staff',
-        'is_active',
-    ]
-    list_display = [
-        'mobile',
-        'fullname',
+        'manager',
     ]
 
 
 class AdminMember(admin.ModelAdmin):
     model = Member
     fields = [
-        'company',
+        'name',
         'mobile',
-        'email',
-        'fullname',
-        'is_member',
-        'is_superuser',
-        'is_staff',
-        'is_active',
+        'company',
         'level',
-        'last_loc',
     ]
     list_display = [
+        'name',
         'mobile',
-        'fullname',
         'company',
+        'level',
     ]
 
 
 admin.site.register(Company,AdminCompany)
 admin.site.register(Team,AdminTeam)
-admin.site.register(Account,AdminAccount)
 admin.site.register(Member,AdminMember)
